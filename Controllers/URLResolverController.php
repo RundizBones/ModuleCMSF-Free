@@ -130,10 +130,9 @@ class URLResolverController extends \Rdb\Modules\RdbAdmin\Controllers\BaseContro
      */
     public function resolveAction()
     {
-        $requestURI = '';
-        if (isset($_SERVER['REQUEST_URI'])) {
-            $requestURI = ltrim($_SERVER['REQUEST_URI'], '/');
-        }
+        $Url = new \Rdb\System\Libraries\Url($this->Container);
+        $requestURL = ltrim($Url->getCurrentUrlRelatedFromPublic(), '/');
+        unset($Url);
 
         $checkLanguageUrlBase = $this->isCheckLanguageUrlBase();
 
@@ -143,7 +142,7 @@ class URLResolverController extends \Rdb\Modules\RdbAdmin\Controllers\BaseContro
         // check for matched URL and retrieve the data from DB.
         $UrlAliasesDb = new \Rdb\Modules\RdbCMSA\Models\UrlAliasesDb($this->Container);
         $where = [];
-        $where['alias_url_encoded'] = $requestURI;
+        $where['alias_url_encoded'] = $requestURL;
         if ($checkLanguageUrlBase === true) {
             $where['language'] = $this->language;
         }
