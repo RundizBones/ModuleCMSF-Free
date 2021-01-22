@@ -131,7 +131,7 @@ class URLResolverController extends \Rdb\Modules\RdbAdmin\Controllers\BaseContro
     public function resolveAction()
     {
         $Url = new \Rdb\System\Libraries\Url($this->Container);
-        $requestURL = ltrim($Url->getCurrentUrlRelatedFromPublic(), '/');
+        $requestURL = ltrim($Url->getPath(), '/');
         unset($Url);
 
         $checkLanguageUrlBase = $this->isCheckLanguageUrlBase();
