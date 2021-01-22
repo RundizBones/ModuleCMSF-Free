@@ -52,7 +52,7 @@ class URLResolverController extends \Rdb\Modules\RdbAdmin\Controllers\BaseContro
     /**
      * Execute target content controller based on data in DB.
      * 
-     * @param object $resultRow The data that retrieved and found matched URL.
+     * @param \stdClass $resultRow The data that retrieved and found matched URL.
      * @return string Return executed controller result.
      */
     protected function executeTargetContentController(\stdClass $resultRow): string
