@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rdbcmsf\n"
-"POT-Creation-Date: 2021-01-23 20:16+0700\n"
-"PO-Revision-Date: 2021-01-23 20:16+0700\n"
+"POT-Creation-Date: 2021-01-24 02:49+0700\n"
+"PO-Revision-Date: 2021-01-24 02:49+0700\n"
 "Last-Translator: Vee W.\n"
 "Language-Team: \n"
 "Language: th_TH\n"
@@ -23,10 +23,47 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: .git\n"
 "X-Poedit-SearchPathExcluded-4: .dev-notes\n"
 
-#: Controllers/Front/IndexController.php:25
+#: Controllers/Front/IndexController.php:31
+#: Views/Front/Widgets/Navbar/render_v.php:9
 msgid "Home"
 msgstr "หน้าแรก"
 
 #: ModuleData/ModuleAdmin.php:89
 msgid "Visit site"
 msgstr "เข้าชมเว็บไซต์"
+
+#: Views/Front/Index/index_v.php:14
+msgid "Welcome"
+msgstr "ยินดีต้อนรับ"
+
+#: Views/Front/Index/index_v.php:16
+msgid "This is the home page of CMS front pages module."
+msgstr "นี่คือหน้าแรกของโมดูล CMS สำหรับด้านหน้า."
+
+#: Views/Front/Index/index_v.php:17
+#, php-format
+msgid "You can start modify the controller of this page at %1$s."
+msgstr "คุณสามารถเริ่มแก้ไขคอนโทรลเลอร์สำหรับหน้านี้ได้ที่ %1$s."
+
+#: Views/Front/Posts/View/index_v.php:24
+#, php-format
+msgid "By %1$s"
+msgstr "โดย %1$s"
+
+#: Views/Front/Posts/View/index_v.php:37
+msgid "Category"
+msgid_plural "Categories"
+msgstr[0] "หมวดหมู่"
+
+#: Views/Front/Posts/View/index_v.php:52
+msgid "Tag"
+msgid_plural "Tags"
+msgstr[0] "แท็ก"
+
+#: Views/Front/Widgets/Navbar/render_v.php:3
+msgid "Toggle navigation"
+msgstr "แสดงเมนู"
+
+#: Views/Front/Widgets/Navbar/render_v.php:19
+msgid "Languages"
+msgstr "ภาษา"

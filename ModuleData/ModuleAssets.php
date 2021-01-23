@@ -54,6 +54,17 @@ class ModuleAssets
                         'integrity' => 'sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l'
                     ],
                 ],
+                [
+                    'handle' => 'smartmenus-bootstrap',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery.smartmenus/1.1.1/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.min.css',
+                    'version' => '1.1.1',
+                    'dependency' => ['bootstrap4'],
+                ],
+                [
+                    'handle' => 'rdbcmsf-style',
+                    'file' => $publicModuleUrl . '/assets/css/style.css',
+                    'dependency' => ['bootstrap4'],
+                ],
             ],
             'js' => [
                 [
@@ -74,6 +85,23 @@ class ModuleAssets
                         'crossorigin' => 'anonymous', 
                         'integrity' => 'sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns',
                     ],
+                ],
+                [
+                    'handle' => 'smartmenus',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery.smartmenus/1.1.1/jquery.smartmenus.min.js',
+                    'version' => '1.1.1',
+                    'dependency' => ['jquery3'],
+                ],
+                [
+                    'handle' => 'smartmenus-bootstrap',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery.smartmenus/1.1.1/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.min.js',
+                    'version' => '1.1.1',
+                    'dependency' => ['smartmenus', 'bootstrap4'],
+                ],
+                [
+                    'handle' => 'languageSwitcher',
+                    'file' => $publicModuleUrl . '/assets/js/LanguageSwitcher.js',
+                    'dependency' => [],
                 ],
             ],
         ];

@@ -3,30 +3,44 @@
 /* @var $Modules \Rdb\System\Modules */
 /* @var $Views \Rdb\System\Views */
 /* @var $Url \Rdb\System\Libraries\Url */
+
+require dirname(__DIR__) . '/common/htmlHead_v.php';
 ?>
-<!DOCTYPE html>
-<html class="<?php echo ($pageHtmlClasses ?? ''); ?>" lang="<?php echo ($_SERVER['RUNDIZBONES_LANGUAGE'] ?? 'th'); ?>">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <?php echo $Assets->renderAssets('css'); ?> 
-
-        <title><?php
-        if (isset($pageHtmlTitle) && is_scalar($pageHtmlTitle)) {
-            echo htmlspecialchars($pageHtmlTitle, ENT_QUOTES);
-        }
-        ?></title>
-    </head>
-    <body>
         <div class="container">
-            <header class="row">
+<?php require dirname(__DIR__) . '/common/pageHeader_v.php'; ?> 
+            <div class="row">
+                <div class="col-sm-9">
+                    <h1 class="mt-4"><?php echo d__('rdbcmsf', 'Welcome'); ?></h1>
+                    <p>
+                        <?php echo d__('rdbcmsf', 'This is the home page of CMS front pages module.'); ?> 
+                        <?php printf(d__('rdbcmsf', 'You can start modify the controller of this page at %1$s.'), '<strong>' . $controllerPath . '</strong>'); ?> 
+                    </p>
+                </div><!-- .col -->
                 <div class="col">
-                    <h1 class="display-4"><?php echo ($configDb['rdbadmin_SiteName'] ?? 'RundizBones CMS front pages module'); ?></h1>
-                </div>
-            </header>
-        </div>
+                    <ul class="mt-4">
+                        <?php
+                        if (isset($listPages) && is_array($listPages)) {
+                            foreach ($listPages as $page) {
+                                if (!empty($page->alias_url_encoded)) {
+                                    $linkToPage = $Url->getAppBasedPath(true) . '/' . $page->alias_url_encoded;
+                                } else {
+                                    $linkToPage = $Url->getAppBasedPath(true) . '/posts/' . $page->post_type . '/' . $page->post_id;
+                                }
+                                echo '<li>';
+                                echo '<a href="' . $linkToPage . '">';
+                                echo $page->post_name;
+                                echo '</a>';
+                                echo '</li>' . PHP_EOL;
+                                unset($linkToPage);
+                            }// endforeach;
+                            unset($page);
+                        }
+                        ?> 
+                    </ul>
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
 
-        <?php echo $Assets->renderAssets('js'); ?> 
-    </body>
-</html>
+<?php
+require dirname(__DIR__) . '/common/htmlFoot_v.php';
