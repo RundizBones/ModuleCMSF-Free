@@ -61,4 +61,25 @@ class RdbCMSFBaseController extends \Rdb\Modules\RdbAdmin\Controllers\BaseContro
     }// getConfigDb
 
 
+    /**
+     * Module execute for 404 error controller and then return response.
+     * 
+     * @param array $args The controller action's method arguments.
+     * @return string Return response from 404 controller.
+     */
+    protected function response404(array $args)
+    {
+        if ($this->Container->has('Config')) {
+            $Config = $this->Container->get('Config');
+            $Config->setModule('');
+        } else {
+            $Config = new \Rdb\System\Config();
+        }
+
+        $errors = $Config->get('ALL', 'error', []);
+
+        return $this->Modules->execute($errors['404'], $args);
+    }// response404
+
+
 }
