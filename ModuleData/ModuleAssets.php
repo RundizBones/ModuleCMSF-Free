@@ -47,7 +47,7 @@ class ModuleAssets
             'css' => [
                 [
                     'handle' => 'bootstrap4',
-                    'file' => 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css?v=460',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css',
                     'version' => '4.6.0',
                     'attributes' => [
                         'crossorigin' => 'anonymous', 
@@ -69,7 +69,7 @@ class ModuleAssets
             'js' => [
                 [
                     'handle' => 'jquery3',
-                    'file' => 'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js',
                     'version' => '3.5.1',
                     'attributes' => [
                         'crossorigin' => 'anonymous', 
@@ -78,7 +78,7 @@ class ModuleAssets
                 ],
                 [
                     'handle' => 'bootstrap4',
-                    'file' => 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js',
+                    'file' => 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js',
                     'version' => '4.6.0',
                     'dependency' => ['jquery3'],
                     'attributes' => [
