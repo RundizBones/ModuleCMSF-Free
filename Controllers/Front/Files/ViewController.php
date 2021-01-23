@@ -10,7 +10,7 @@ namespace Rdb\Modules\RdbCMSF\Controllers\Front\Files;
 /**
  * View file detail  controller.
  */
-class ViewController extends \Rdb\Modules\RdbAdmin\Controllers\BaseController
+class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseController
 {
 
 

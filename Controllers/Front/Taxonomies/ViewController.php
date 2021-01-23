@@ -10,7 +10,7 @@ namespace Rdb\Modules\RdbCMSF\Controllers\Front\Taxonomies;
 /**
  * View taxonomy detail controller. This maybe posts listing page in selected taxonomy.
  */
-class ViewController extends \Rdb\Modules\RdbAdmin\Controllers\BaseController
+class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseController
 {
 
 
