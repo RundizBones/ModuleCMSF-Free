@@ -7,4 +7,4 @@ This module required [RdbCMSA][rdbcmsa] module.
 * Run this command from framework folder. `php rdb system:module install --mname="RdbCMSF"`.
 
 [RundizBones]:https://github.com/RundizBones/framework
-[rdbcmsa]:/RdbCMSA
+[rdbcmsa]:http://gitea.test-localhost.com/BonesFramework/RdbCMSA
