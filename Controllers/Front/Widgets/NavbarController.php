@@ -22,6 +22,7 @@ class NavbarController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseContr
     public function renderAction(): string
     {
         $Url = new \Rdb\System\Libraries\Url($this->Container);
+        $_SERVER['HTTP_ACCEPT'] = 'text/html';
 
         $CategoriesDb = new \Rdb\Modules\RdbCMSA\Models\CategoriesDb($this->Db->PDO(), $this->Container);
         $options = [];
@@ -45,8 +46,9 @@ class NavbarController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseContr
 
         // get languages.
         $languages = $this->Modules->execute('\\Rdb\\Modules\\Languages\\Controllers\\Languages:index');
-        $output['languages'] = unserialize($languages);
-        unset($languages);
+        $Serializer = new \Rundiz\Serializer\Serializer();
+        $output['languages'] = $Serializer->maybeUnserialize($languages);
+        unset($languages, $Serializer);
 
         // display, response part ---------------------------------------------------------------------------------------------
         // get module's assets
