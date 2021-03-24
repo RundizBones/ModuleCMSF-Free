@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rdbcmsf\n"
-"POT-Creation-Date: 2021-01-24 02:49+0700\n"
-"PO-Revision-Date: 2021-01-24 02:49+0700\n"
+"POT-Creation-Date: 2021-03-24 20:04+0700\n"
+"PO-Revision-Date: 2021-03-24 20:04+0700\n"
 "Last-Translator: Vee W.\n"
 "Language-Team: \n"
 "Language: th_TH\n"
@@ -32,6 +32,11 @@ msgstr "หน้าแรก"
 msgid "Visit site"
 msgstr "เข้าชมเว็บไซต์"
 
+#: Views/Front/Files/View/index_v.php:43 Views/Front/Posts/View/index_v.php:24
+#, php-format
+msgid "By %1$s"
+msgstr "โดย %1$s"
+
 #: Views/Front/Index/index_v.php:14
 msgid "Welcome"
 msgstr "ยินดีต้อนรับ"
@@ -45,10 +50,10 @@ msgstr "นี่คือหน้าแรกของโมดูล CMS ส�
 msgid "You can start modify the controller of this page at %1$s."
 msgstr "คุณสามารถเริ่มแก้ไขคอนโทรลเลอร์สำหรับหน้านี้ได้ที่ %1$s."
 
-#: Views/Front/Posts/View/index_v.php:24
+#: Views/Front/Index/index_v.php:18
 #, php-format
-msgid "By %1$s"
-msgstr "โดย %1$s"
+msgid "The views file is located at %1$s."
+msgstr "ไฟล์ Views นั้นอยู่ที่ %1$s."
 
 #: Views/Front/Posts/View/index_v.php:37
 msgid "Category"

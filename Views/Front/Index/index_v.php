@@ -14,7 +14,8 @@ require dirname(__DIR__) . '/common/htmlHead_v.php';
                     <h1 class="mt-4"><?php echo d__('rdbcmsf', 'Welcome'); ?></h1>
                     <p>
                         <?php echo d__('rdbcmsf', 'This is the home page of CMS front pages module.'); ?> 
-                        <?php printf(d__('rdbcmsf', 'You can start modify the controller of this page at %1$s.'), '<strong>' . $controllerPath . '</strong>'); ?> 
+                        <?php printf(d__('rdbcmsf', 'You can start modify the controller of this page at %1$s.'), '<strong>' . $controllerPath . '</strong>'); ?><br>
+                        <?php printf(d__('rdbcmsf', 'The views file is located at %1$s.'), '<strong>' . __FILE__ . '</strong>'); ?> 
                     </p>
                 </div><!-- .col -->
                 <div class="col">
