@@ -85,6 +85,14 @@ class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseControl
         ];
         unset($currentOffset, $listPosts, $nextOffset, $postsPerPage, $previousOffset, $totalPages, $totalPosts);
 
+        // process canonical link.
+        $canonicalLink = $Url->getDomainProtocol() . $Url->getAppBasedPath(true) . '/taxonomies/' . rawurlencode($t_type) . '/' . $tid;
+        header('Link: ' . $canonicalLink . '; rel="canonical"');
+        $pageHtmlHead = '<link rel="canonical" href="' . $canonicalLink . '">';
+        unset($canonicalLink);
+
+        $output['pageHtmlHead'] = $pageHtmlHead;
+
         // display, response part ---------------------------------------------------------------------------------------------
         // get module's assets
         $ModuleAssets = new \Rdb\Modules\RdbCMSF\ModuleData\ModuleAssets($this->Container);

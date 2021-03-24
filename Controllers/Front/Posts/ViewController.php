@@ -57,6 +57,14 @@ class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseControl
         $output['pageHtmlHead'] = $Post->revision_head_value;
         unset($Post);
 
+        // process canonical link.
+        $canonicalLink = $Url->getDomainProtocol() . $Url->getAppBasedPath(true) . '/posts/' . rawurlencode($post_type) . '/' . $post_id;
+        header('Link: ' . $canonicalLink . '; rel="canonical"');
+        $pageHtmlHead = '<link rel="canonical" href="' . $canonicalLink . '">';
+        unset($canonicalLink);
+
+        $output['pageHtmlHead'] = $pageHtmlHead;
+
 
         // display, response part ---------------------------------------------------------------------------------------------
         // get module's assets
