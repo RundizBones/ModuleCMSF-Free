@@ -32,7 +32,7 @@ class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseControl
 
         // get file. ----------------------------------------
         $FilesDb = new \Rdb\Modules\RdbCMSA\Models\FilesDb($this->Container);
-        $FilesSubController = new \Rdb\Modules\RdbCMSA\Controllers\Admin\SubControllers\FilesSubController();
+        $FilesSubController = new \Rdb\Modules\RdbCMSA\Controllers\Admin\SubControllers\Files\FilesSubController();
         $where = [
             'file_id' => $file_id,
             'files.file_status' => 1,
