@@ -64,6 +64,7 @@ class NavbarController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseContr
             'LanguageSwitcherObject',
             [
                 'currentUrl' => $output['urls']['currentUrl'] . $Url->getQuerystring(),
+                'currentLanguageID' => ($_SERVER['RUNDIZBONES_LANGUAGE'] ?? ''),
                 'setLanguage_method' => $output['languages']['setLanguage_method'],
                 'setLanguage_url' => $output['languages']['setLanguage_url'],
             ]

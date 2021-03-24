@@ -20,6 +20,7 @@ class RdbCMSFLanguageSwitcher {
                 let formData = new FormData();
                 formData.append('currentUrl', LanguageSwitcherObject.currentUrl);
                 formData.append('rundizbones-languages', target.dataset.rundizbonesLanguages);
+                formData.append('currentLanguageID', LanguageSwitcherObject.currentLanguageID);
 
                 let XHR = new XMLHttpRequest();
                 XHR.onreadystatechange = function() {
