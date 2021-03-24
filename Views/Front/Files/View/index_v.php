@@ -3,7 +3,7 @@
 /* @var $Modules \Rdb\System\Modules */
 /* @var $Views \Rdb\System\Views */
 /* @var $Url \Rdb\System\Libraries\Url */
-/* @var $FilesSubController \Rdb\Modules\RdbCMSA\Controllers\Admin\SubControllers\FilesSubController */
+/* @var $FilesSubController \Rdb\Modules\RdbCMSA\Controllers\Admin\SubControllers\Files\FilesSubController */
 
 require dirname(__DIR__, 2) . '/common/htmlHead_v.php';
 ?>
