@@ -254,7 +254,7 @@ class FrontPostsURLs
         $URLAliasesDb = new \Rdb\Modules\RdbCMSA\Models\UrlAliasesDb($this->Container);
         $result = $URLAliasesDb->get([
             'language' => $language,
-            'alias_url' => $alias_url,
+            'alias_url_encoded' => $alias_url,
         ]);
         unset($URLAliasesDb);
 
