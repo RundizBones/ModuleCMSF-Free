@@ -85,7 +85,7 @@ class ModuleAdmin implements \Rdb\Modules\RdbAdmin\Interfaces\ModuleAdmin
         return [
             1 => [
                 'id' => 'rdbcmsf-visit-front-pages',
-                'icon' => 'fas fa-home fa-fw',
+                'icon' => 'fa-solid fa-house fa-fw',
                 'name' => d__('rdbcmsf', 'Visit site'),
                 'link' => $urlBaseWithLang . '/',
             ],
