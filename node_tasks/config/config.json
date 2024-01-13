@@ -1,0 +1,6 @@
+{
+    "moduleName": "RdbCMSFFree",
+    "rdb": true,
+    "copyPatterns": "$default",
+    "ignorePatterns": "$default"
+}
