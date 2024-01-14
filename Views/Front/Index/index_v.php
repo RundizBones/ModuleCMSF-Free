@@ -13,10 +13,51 @@ require dirname(__DIR__) . '/common/htmlHead_v.php';
                 <div class="col-sm-9">
                     <h1 class="mt-4"><?php echo d__('rdbcmsf', 'Welcome'); ?></h1>
                     <p>
-                        <?php echo d__('rdbcmsf', 'This is the home page of CMS front pages module.'); ?> 
+                        <?php echo d__('rdbcmsf', 'This is the home page of CMS front pages module.'); ?><br>
                         <?php printf(d__('rdbcmsf', 'You can start modify the controller of this page at %1$s.'), '<strong>' . $controllerPath . '</strong>'); ?><br>
                         <?php printf(d__('rdbcmsf', 'The views file is located at %1$s.'), '<strong>' . __FILE__ . '</strong>'); ?> 
                     </p>
+                    <?php 
+                    if (isset($listPosts) && is_array($listPosts)) { 
+                        foreach ($listPosts as $eachPost) {
+                            if (!empty($eachPost->alias_url_encoded)) {
+                                $linkToPost = $Url->getAppBasedPath(true) . '/' . $eachPost->alias_url_encoded;
+                            } else {
+                                $linkToPost = $Url->getAppBasedPath(true) . '/posts/' . rawurlencode($eachPost->post_type) . '/' . $eachPost->post_id;
+                            }
+                    ?> 
+                    <div class="card container-fluid py-3 my-4">
+                        <article class="row">
+                            <?php if (isset($eachPost->files->urls->thumbnail)) { ?> 
+                            <div class="col-sm-2 mb-3 mb-sm-0 text-center">
+                                <img class="img-fluid" src="<?php echo $eachPost->files->urls->thumbnail; ?>" alt="">
+                            </div>
+                            <?php }// endif; $eachPost->files->urls->thumbnail ?> 
+                            <div class="col">
+                                <h3><a href="<?php echo $linkToPost; ?>"><?php echo $eachPost->post_name; ?></a></h3>
+                                <?php
+                                if (!empty($eachPost->revision_body_summary)) {
+                                    echo '<div class="summary">' . $eachPost->revision_body_summary . '</div>';
+                                } else {
+                                    echo '<div class="shorten-post-body">' . mb_strimwidth(strip_tags($eachPost->revision_body_value), 0, 100, '&hellip;') . '</div>';
+                                }
+                                ?> 
+                            </div>
+                        </article>
+                    </div>
+                    <?php 
+                            unset($linkToPost);
+                        }// endforeach;
+                        unset($eachPost);
+                    }// endif; $listPosts 
+                    ?> 
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="<?php echo $paginations['previous']; ?>">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="<?php echo $paginations['next']; ?>">Next</a></li>
+                        </ul>
+                    </nav>
                 </div><!-- .col -->
                 <div class="col">
                     <ul class="mt-4">

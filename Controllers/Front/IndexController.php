@@ -16,6 +16,9 @@ class IndexController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseContro
 {
 
 
+    use Traits\PostsTrait;
+
+
     /**
      * View home page.
      * 
@@ -33,6 +36,9 @@ class IndexController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseContro
         $output['pageHtmlClasses'] = $this->getPageHtmlClasses();
 
         $output['controllerPath'] = __FILE__;
+
+        // list posts. ----------------------------------------
+        $output = array_merge($output, $this->listPublishedPosts());
 
         // list pages. --------------------------------------------------------
         $PostsDb = new \Rdb\Modules\RdbCMSA\Models\PostsDb($this->Container);

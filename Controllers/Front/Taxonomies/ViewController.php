@@ -14,6 +14,9 @@ class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseControl
 {
 
 
+    use \Rdb\Modules\RdbCMSF\Controllers\Front\Traits\PostsTrait;
+
+
     /**
      * View taxonomy page.
      * 
@@ -55,35 +58,7 @@ class ViewController extends \Rdb\Modules\RdbCMSF\Controllers\RdbCMSFBaseControl
         unset($Category);
 
         // list posts. ----------------------------------------
-        $postsPerPage = 10;
-        $currentOffset = (int) trim($this->Input->get('offset', 0));
-        $PostsDb = new \Rdb\Modules\RdbCMSA\Models\PostsDb($this->Container);
-        $options = [];
-        $options['where'] = [
-            'posts.language' => ($_SERVER['RUNDIZBONES_LANGUAGE'] ?? 'th'),
-        ];
-        $options['tidsIn'] = [$tid];
-        $options['isPublished'] = true;
-        $options['sortOrders'] = [
-            ['sort' => 'post_publish_date', 'order' => 'desc'],
-        ];
-        $options['limit'] = $postsPerPage;
-        $options['offset'] = $currentOffset;
-        $options['skipCategories'] = true;
-        $options['skipTags'] = true;
-        $listPosts = $PostsDb->listItems($options);
-        unset($options, $PostsDb);
-        $output['listPosts'] = ($listPosts['items'] ?? []);
-
-        $totalPosts = $listPosts['total'];
-        $totalPages = ceil($totalPosts / $postsPerPage);
-        $previousOffset = max(0, ($currentOffset - 1));
-        $nextOffset = min($totalPages, ($currentOffset + 1));
-        $output['paginations'] = [
-            'previous' => $Url->getCurrentUrl(true) . '?offset=' . $previousOffset,
-            'next' => $Url->getCurrentUrl(true) . '?offset=' . $nextOffset,
-        ];
-        unset($currentOffset, $listPosts, $nextOffset, $postsPerPage, $previousOffset, $totalPages, $totalPosts);
+        $output = array_merge($output, $this->listPublishedPosts($tid));
 
         // process canonical link.
         $canonicalLink = $Url->getDomainProtocol() . $Url->getAppBasedPath(true) . '/taxonomies/' . rawurlencode($t_type) . '/' . $tid;
