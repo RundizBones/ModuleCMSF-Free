@@ -1,7 +1,6 @@
-.backup
-.disabled
-.dist
-.phpcs.report.txt
-node_modules
-package-lock.json
-nbproject
+/.backup
+/.disabled
+/.dist
+/.phpcs.report.txt
+/node_modules
+/nbproject
